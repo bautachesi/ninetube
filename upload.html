@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Video - ninetube</title>
+  <link rel="icon" type="image/png" href="ninetube-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="upload-styles.css">
+</head>
+<body>
+  <header class="nt-header">
+    <div class="nt-header__left">
+      <a href="index.html" class="nt-logo-link" aria-label="ninetube home">
+        <img src="ninetube-text.png" class="nt-logo" alt="ninetube" height="60">
+      </a>
+    </div>
+
+    <div class="nt-header__center">
+      <form id="nt-search-form" class="nt-search" action="results.html" method="GET" role="search">
+        <input
+          id="nt-search-input"
+          name="q"
+          class="nt-search__input"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+        >
+        <button type="submit" class="nt-search__button" aria-label="Search">
+          <svg class="nt-search__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="nt-header__right">
+      <a id="nt-user" class="nt-user" href="me.html" style="display:none">
+        <img class="nt-user__pfp" src="Default-pfp.png" alt="me">
+        <span id="nt-username" class="nt-user__name"></span>
+      </a>
+      <button class="nt-btn nt-btn--primary" type="button">Sign in</button>
+      <button class="nt-btn nt-btn--outline" type="button">Sign up</button>
+    </div>
+  </header>
+
+  <div class="nt-subheader">
+    <div class="nt-subheader__left">
+      <!-- No menu button here -->
+    </div>
+    <div class="nt-subheader__center">
+      <button id="nt-tab-what" class="nt-tab nt-tab--active" type="button">What to Watch</button>
+      <button id="nt-tab-following" class="nt-tab" type="button">Following</button>
+    </div>
+    <div class="nt-subheader__right">
+      <button id="nt-upload-btn" class="nt-action-btn" type="button" aria-label="Upload">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M5 20h14v-2H5v2zm7-16-5 5h3v4h4v-4h3l-5-5z"/>
+        </svg>
+        <span>Upload</span>
+      </button>
+      <button id="nt-settings-btn" class="nt-action-btn" type="button" aria-label="Settings">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.2-0.36-0.28-0.57-0.22l-2.39,0.96c-0.5-0.38-1.04-0.69-1.64-0.92L14.4,2.5c-0.03-0.22-0.22-0.39-0.44-0.39h-3.92c-0.22,0-0.41,0.16-0.44,0.39L9.07,4.36c-0.6,0.23-1.15,0.54-1.64,0.92L5.04,4.32c-0.21-0.08-0.45,0.02-0.57,0.22L2.55,7.86C2.43,8.08,2.48,8.34,2.66,8.48l2.03,1.58C4.64,10.37,4.62,10.68,4.62,11s0.02,0.63,0.06,0.94L2.66,13.52c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.2,0.36,0.28,0.57,0.22l2.39-0.96c0.5,0.38,1.04,0.69,1.64,0.92l0.53,1.86c0.03,0.22,0.22,0.39,0.44,0.39h3.92c0.22,0,0.41-0.16,0.44-0.39l0.53-1.86c0.6-0.23,1.15-0.54,1.64-0.92l2.39,0.96c0.21,0.08,0.45-0.02,0.57-0.22l1.92-3.32c0.11-0.2,0.06-0.46-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5S10.07,8.5,12,8.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/>
+        </svg>
+        <span>Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- No sidebar here -->
+
+  <main class="upload-main">
+    <!-- Initial upload panel -->
+    <div id="upload-panel" class="upload-panel">
+      <div class="upload-panel-content">
+        <h1 id="upload-title" class="upload-title">¡Upload any video!</h1>
+        <p class="upload-disclaimer">If you upload a video to this platform, you must strictly comply with the website's privacy policies. Failure to do so will result in your video being deleted.</p>
+        
+        <div id="upload-icon-container" class="upload-icon-container">
+          <div class="upload-icon-item">
+            <svg class="upload-icon" viewBox="0 0 24 24" width="80" height="80">
+              <path fill="currentColor" d="M5 20h14v-2H5v2zm7-16-5 5h3v4h4v-4h3l-5-5z"/>
+            </svg>
+            <span class="upload-icon-label">Select Video</span>
+            <input type="file" id="video-file-input" accept=".mp4" style="display: none;">
+          </div>
+        </div>
+
+        <!-- Edit video panel (hidden initially) -->
+        <div id="edit-panel" class="edit-panel" style="display: none;">
+          <div class="edit-content">
+            <div class="video-preview">
+              <video id="video-preview" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="thumbnail-selector">
+              <div class="thumbnail-icon-item">
+                <svg class="thumbnail-icon" viewBox="0 0 24 24" width="60" height="60">
+                  <path fill="currentColor" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                </svg>
+                <span class="thumbnail-icon-label">Select Thumbnail</span>
+                <input type="file" id="thumbnail-file-input" accept=".png,.jpg,.jpeg" style="display: none;">
+              </div>
+            </div>
+            <div class="video-inputs">
+              <input type="text" id="video-title-input" class="video-input" placeholder="Set any title to your video">
+              <textarea id="video-description-input" class="video-textarea" placeholder="Set any description to your video"></textarea>
+            </div>
+          </div>
+          <button id="upload-submit-btn" class="upload-submit-btn">Upload</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="upload-script.js"></script>
+</body>
+</html>

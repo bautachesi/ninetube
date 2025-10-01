@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ninetube</title>
+    <link rel="icon" type="image/png" href="ninetube-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index-styles.css">
+    <link rel="stylesheet" href="about-styles.css">
+</head>
+<body>
+  <header class="nt-header">
+    <div class="nt-header__left">
+      <a href="/" class="nt-logo-link" aria-label="ninetube home">
+        <img src="ninetube-text.png" class="nt-logo" alt="ninetube" height="60">
+      </a>
+    </div>
+
+    <div class="nt-header__center">
+      <form id="nt-search-form" class="nt-search" action="results.html" method="GET" role="search">
+        <input
+          id="nt-search-input"
+          name="q"
+          class="nt-search__input"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+          aria-label="Search"
+        >
+        <button type="submit" class="nt-search__button" aria-label="Search">
+          <svg class="nt-search__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="nt-header__right">
+      <a id="nt-user" class="nt-user" href="signin.html" style="display:none">
+        <img class="nt-user__pfp" src="Default-pfp.png" alt="me">
+        <span id="nt-username" class="nt-user__name"></span>
+      </a>
+      <button class="nt-btn nt-btn--primary" type="button">Sign in</button>
+      <button class="nt-btn nt-btn--outline" type="button">Sign up</button>
+    </div>
+  </header>
+
+  <div class="nt-subheader">
+    <div class="nt-subheader__left">
+      <button id="nt-menu-btn" class="nt-menu-btn" type="button">Menu</button>
+    </div>
+    <div class="nt-subheader__center">
+      <button id="nt-tab-what" class="nt-tab nt-tab--active" type="button">What to Watch</button>
+      <button id="nt-tab-following" class="nt-tab" type="button">Following</button>
+    </div>
+    <div class="nt-subheader__right">
+      <button id="nt-upload-btn" class="nt-action-btn" type="button" aria-label="Upload">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M5 20h14v-2H5v2zm7-16-5 5h3v4h4v-4h3l-5-5z"/>
+        </svg>
+        <span>Upload</span>
+      </button>
+      <button id="nt-settings-btn" class="nt-action-btn" type="button" aria-label="Settings">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.2-0.36-0.28-0.57-0.22l-2.39,0.96c-0.5-0.38-1.04-0.69-1.64-0.92L14.4,2.5c-0.03-0.22-0.22-0.39-0.44-0.39h-3.92c-0.22,0-0.41,0.16-0.44,0.39L9.07,4.36c-0.6,0.23-1.15,0.54-1.64,0.92L5.04,4.32c-0.21-0.08-0.45,0.02-0.57,0.22L2.55,7.86C2.43,8.08,2.48,8.34,2.66,8.48l2.03,1.58C4.64,10.37,4.62,10.68,4.62,11s0.02,0.63,0.06,0.94L2.66,13.52c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.2,0.36,0.28,0.57,0.22l2.39-0.96c0.5,0.38,1.04,0.69,1.64,0.92l0.53,1.86c0.03,0.22,0.22,0.39,0.44,0.39h3.92c0.22,0,0.41-0.16,0.44-0.39l0.53-1.86c0.6-0.23,1.15-0.54,1.64-0.92l2.39,0.96c0.21,0.08,0.45-0.02,0.57-0.22l1.92-3.32c0.11-0.2,0.06-0.46-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5S10.07,8.5,12,8.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/>
+        </svg>
+        <span>Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <aside id="nt-sidebar" class="nt-sidebar nt-sidebar--open" aria-hidden="false">
+    <div class="nt-sidebar__inner">
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">PRINCIPAL</div>
+        <nav class="nt-sidebar__nav">
+          <button id="sb-home" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span class="nt-sidebtn__label">Home</span>
+          </button>
+          <button id="sb-channel" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <span class="nt-sidebtn__label">My Channel</span>
+          </button>
+          <button id="sb-subs" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7 17l5-5 5 5H7zm0-7h10l-5-5-5 5z"/></svg>
+            <span class="nt-sidebtn__label">My Subscriptions</span>
+          </button>
+          <button id="sb-history" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M13 3a9 9 0 1 0 8.95 10.05h-2.02A7 7 0 1 1 13 5v4l3.5 2.1.99-1.65L13 8V3z"/></svg>
+            <span class="nt-sidebtn__label">My History</span>
+          </button>
+          <button id="sb-liked" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14 1 7.59 7.41C7.22 7.78 7 8.3 7 8.86V19c0 1.1.9 2 2 2h7c.82 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+            <span class="nt-sidebtn__label">My Liked</span>
+          </button>
+        </nav>
+      </div>
+      <div class="nt-sidebar__divider"></div>
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">TOP RATED</div>
+        <div class="nt-subs">
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=holasoygerman">
+            <img class="nt-sub__pfp" src="Channel1-pfp.png" alt="HolaSoyGerman">
+            <span class="nt-sub__name">HolaSoyGerman</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=cursor">
+            <img class="nt-sub__pfp" src="Channel2-pfp.png" alt="Cursor">
+            <span class="nt-sub__name">Cursor</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=carlossnakefist">
+            <img class="nt-sub__pfp" src="Channel3-pfp.png" alt="CarlosSnakeFist">
+            <span class="nt-sub__name">CarlosSnakeFist</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=jawed">
+            <img class="nt-sub__pfp" src="Channel4-pfp.png" alt="Jawed">
+            <span class="nt-sub__name">Jawed</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=bautista">
+            <img class="nt-sub__pfp" src="ninetube-logo.png" alt="Bautista">
+            <span class="nt-sub__name">Bautista</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=drossrotzank">
+            <img class="nt-sub__pfp" src="Channel6-pfp.png" alt="Dross Rotzank">
+            <span class="nt-sub__name">Dross Rotzank</span>
+          </button>
+        </div>
+      </div>
+      <div class="nt-sidebar__divider"></div>
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">HELP</div>
+        <nav class="nt-sidebar__nav">
+          <button id="sb-settings" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.2-0.36-0.28-0.57-0.22l-2.39,0.96c-0.5-0.38-1.04-0.69-1.64-0.92L14.4,2.5c-0.03-0.22-0.22-0.39-0.44-0.39h-3.92c-0.22,0-0.41,0.16-0.44,0.39L9.07,4.36c-0.6,0.23-1.15,0.54-1.64,0.92L5.04,4.32c-0.21-0.08-0.45,0.02-0.57,0.22L2.55,7.86C2.43,8.08,2.48,8.34,2.66,8.48l2.03,1.58C4.64,10.37,4.62,10.68,4.62,11s0.02,0.63,0.06,0.94L2.66,13.52c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.2,0.36,0.28,0.57,0.22l2.39-0.96c0.5,0.38,1.04,0.69,1.64,0.92l0.53,1.86c0.03,0.22,0.22,0.39,0.44,0.39h3.92c0.22,0,0.41-0.16,0.44-0.39l0.53-1.86c0.6-0.23,1.15-0.54,1.64-0.92l2.39,0.96c0.21,0.08,0.45-0.02,0.57-0.22l1.92-3.32c0.11-0.2,0.06-0.46-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5S10.07,8.5,12,8.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/></svg>
+            <span class="nt-sidebtn__label">Settings</span>
+          </button>
+          <button id="sb-report" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4h16v2H4v14H2V4c0-1.1.9-2 2-2zm4 5h10l-3 4 3 4H8v-8z"/></svg>
+            <span class="nt-sidebtn__label">Report</span>
+          </button>
+          <button id="sb-help" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 17c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm-1-6h2c0-2 3-2.25 3-4 0-1.66-1.34-3-3-3-1.31 0-2.42.84-2.83 2H8.15c.46-2.28 2.48-4 4.85-4 2.76 0 5 2.24 5 5 0 2.5-3 2.75-3 4v1h-2v-1z"/></svg>
+            <span class="nt-sidebtn__label">Help</span>
+          </button>
+          <button id="sb-about" class="nt-sidebtn nt-sidebtn--ghost is-active" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            <span class="nt-sidebtn__label">About us</span>
+          </button>
+          <button id="sb-logout" class="nt-sidebtn nt-sidebtn--logout" type="button" style="display: none;">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="#FF0000" d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="nt-sidebtn__label">Log out</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+  <main class="nt-main">
+            <div class="about-container">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1 class="hero-title">ABOUT NINETUBE</h1>
+                    <p class="hero-subtitle">Bringing you the nostalgia of classic video sharing with modern innovation</p>
+                </div>
+
+                <!-- Company Information -->
+                <div class="company-section">
+                    <div class="company-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="48" height="48" fill="#0034FF">
+                                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Our Company</h3>
+                        <p class="card-description">ninetube is proudly developed by <strong>Numer/cal</strong>, a innovative technology company focused on creating authentic and user-friendly digital experiences that bring communities together.</p>
+                    </div>
+
+                    <div class="company-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="48" height="48" fill="#0034FF">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Our Mission</h3>
+                        <p class="card-description">To provide a platform where content creators can share their passion while maintaining the simplicity and charm of classic video sharing platforms, without the complexity of modern algorithms.</p>
+                    </div>
+
+                    <div class="company-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="48" height="48" fill="#0034FF">
+                                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Privacy First</h3>
+                        <p class="card-description">We believe your data belongs to you. We don't sell your information to third parties and maintain transparent policies about how your data is used and protected on our platform.</p>
+                    </div>
+                </div>
+
+                <!-- Founders Section -->
+                <div class="founders-section">
+                    <h2 class="section-title">MEET OUR FOUNDERS</h2>
+                    <div class="founders-grid">
+                        <div class="founder-card">
+                            <div class="founder-avatar">
+                                <div class="avatar-placeholder">BM</div>
+                            </div>
+                            <h3 class="founder-name">Bautista Monachesi</h3>
+                            <p class="founder-role">Co-Founder & CEO</p>
+                            <p class="founder-bio">Passionate about creating user-centric platforms that prioritize community and authentic content sharing. Leads the vision and strategic direction of ninetube.</p>
+                        </div>
+
+                        <div class="founder-card">
+                            <div class="founder-avatar">
+                                <div class="avatar-placeholder">HV</div>
+                            </div>
+                            <h3 class="founder-name">HaxV</h3>
+                            <p class="founder-role">Co-Founder & CTO</p>
+                            <p class="founder-bio">Technical visionary behind ninetube's robust architecture and innovative features. Ensures the platform remains fast, secure, and scalable for all users.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="features-section">
+                    <h2 class="section-title">WHAT MAKES US DIFFERENT</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Lightning Fast</h3>
+                            <p class="feature-description">Built with performance in mind, ninetube loads instantly without unnecessary animations or heavy scripts that slow down your experience.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Clean Design</h3>
+                            <p class="feature-description">Inspired by the golden age of video platforms, our interface is intuitive, distraction-free, and focuses on what matters most: your content.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A6,6 0 0,0 9,7H3V8.5C3,9.33 3.67,10 4.5,10H6V13A3,3 0 0,0 9,16H10V19H9L8.5,21V22H15.5V21L15,19H14V18.426C14.6,18.795 15.3,19 16,19A3,3 0 0,0 19,16A3,3 0 0,0 17.9,17.39Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Global Community</h3>
+                            <p class="feature-description">Connect with creators and viewers from around the world, with multi-language support and cultural diversity at the heart of our platform.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Safe Environment</h3>
+                            <p class="feature-description">Advanced moderation tools and community reporting ensure a respectful environment where everyone can create and enjoy content safely.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21C5,22.11 5.89,23 7,23H17C18.11,23 19,22.11 19,21V3C19,1.89 18.11,1 17,1Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Cross-Platform</h3>
+                            <p class="feature-description">Access ninetube from any device, anywhere. Our responsive design works perfectly on desktop, tablet, and mobile devices.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" width="40" height="40" fill="#0034FF">
+                                    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Always Improving</h3>
+                            <p class="feature-description">We continuously update and enhance the platform based on user feedback, ensuring ninetube evolves with your needs and expectations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="contact-section">
+                    <h2 class="section-title">GET IN TOUCH</h2>
+                    <div class="contact-info">
+                        <p class="contact-text">Have questions, suggestions, or want to partner with us?</p>
+                        <p class="contact-text">We'd love to hear from you!</p>
+                        <div class="contact-links">
+                            <a href="mailto:bautistamonachesi@gmail.com" class="contact-email">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                                </svg>
+                                bautistamonachesi@gmail.com
+                            </a>
+                            <a href="report.html" class="contact-report">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                </svg>
+                                Report an Issue
+                            </a>
+                            <a href="help.html" class="contact-help">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z"/>
+                                </svg>
+                                Get Help
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="index-script.js"></script>
+        <script src="about-script.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,223 @@
+/* Report Page Specific Styles */
+
+.report-container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.report-panel {
+    background-color: #F0F0F0;
+    border: 1px solid #9A9999;
+    border-radius: 1px;
+    padding: 30px;
+}
+
+.report-title {
+    color: #707070;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.report-description {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    padding: 12px;
+    font-size: 14px;
+    color: #333333;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #0034FF;
+    box-shadow: 0 0 0 2px rgba(0, 52, 255, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.submit-btn {
+    background-color: #0034FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 2px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0028CC;
+}
+
+.submit-btn:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+
+.report-info {
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 2px;
+    padding: 25px;
+    height: fit-content;
+}
+
+.info-title {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    color: #555555;
+    font-size: 13px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.4;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.info-list li:before {
+    content: "•";
+    color: #0034FF;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Success/Error Messages */
+.message {
+    padding: 15px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.message.success {
+    background-color: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #F8D7DA;
+    border: 1px solid #F5C6CB;
+    color: #721C24;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .report-panel {
+    background-color: #2d2d2d !important;
+    border-color: #444444 !important;
+}
+
+body.dark-mode .report-title {
+    color: #ffffff !important;
+}
+
+body.dark-mode .report-description {
+    color: #cccccc !important;
+}
+
+body.dark-mode .form-label {
+    color: #ffffff !important;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-select,
+body.dark-mode .form-textarea {
+    background-color: #3d3d3d !important;
+    border-color: #555555 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .form-input::placeholder,
+body.dark-mode .form-textarea::placeholder {
+    color: #cccccc !important;
+}
+
+body.dark-mode .report-info {
+    background-color: #2d2d2d !important;
+    border-color: #444444 !important;
+}
+
+body.dark-mode .info-title {
+    color: #ffffff !important;
+}
+
+body.dark-mode .info-list li {
+    color: #cccccc !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .report-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .report-panel {
+        padding: 20px;
+    }
+    
+    .report-title {
+        font-size: 20px;
+    }
+}

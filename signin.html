@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ninetube</title>
+  <link rel="icon" type="image/png" href="ninetube-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signin-styles.css">
+</head>
+<body>
+  <header class="nt-header">
+    <div class="nt-header__left">
+      <a href="index.html" class="nt-logo-link" aria-label="ninetube home">
+        <img src="numerical-text.png" class="nt-logo" alt="ninetube" height="27">
+      </a>
+    </div>
+    <div class="nt-header__center"></div>
+    <div class="nt-header__right"></div>
+  </header>
+
+  <main class="si-main">
+    <div class="si-left">
+      <img src="ninetube-text.png" alt="ninetube" class="si-brand" height="110">
+      <h1 class="si-welcome">¡Welcome back to ninetube!</h1>
+      <p class="si-tagline">Log back into Ninetube and enjoy high-quality, retro content at the same time. Ninetube uses this information to learn about your preferences and information to a limited extent. However, we do not sell your data to third parties or third-party companies. Everything you do will be included in your profile and those around you.</p>
+    </div>
+    <div class="si-right">
+      <div class="si-form">
+        <div class="si-form__top">
+          <h2 class="si-form__title">Sign in!</h2>
+          <img src="numerical-text-2.png" alt="brand" class="si-form__brand" height="40">
+        </div>
+        <label class="si-field">
+          <span class="si-field__label">E-mail</span>
+          <input id="si-email" type="email" placeholder="Set your email" class="si-input">
+        </label>
+        <label class="si-field">
+          <span class="si-field__label">Password-ID</span>
+          <input id="si-password" type="password" placeholder="Set your password-ID" class="si-input">
+        </label>
+        <button id="si-submit" class="si-submit" type="button">Log in</button>
+        <button id="si-create" class="si-create" type="button">Create an account here!</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="signin-script.js"></script>
+  <script>document.documentElement.style.setProperty('--sidebar-top','0px');</script>
+</body>
+</html>
+

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ninetube</title>
+  <link rel="icon" type="image/png" href="ninetube-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="video-styles.css">
+</head>
+<body>
+  <header class="nt-header">
+    <div class="nt-header__left">
+      <a href="index.html" class="nt-logo-link" aria-label="ninetube home">
+        <img src="ninetube-text.png" class="nt-logo" alt="ninetube" height="27">
+      </a>
+    </div>
+    <div class="nt-header__center">
+      <form id="nt-search-form" class="nt-search" action="results.html" method="GET" role="search">
+        <input id="nt-search-input" name="q" class="nt-search__input" type="search" placeholder="Search" autocomplete="off" aria-label="Search">
+        <button type="submit" class="nt-search__button" aria-label="Search">
+          <svg class="nt-search__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="nt-header__right">
+      <a id="nt-user" class="nt-user" href="signin.html" style="display:none">
+        <img class="nt-user__pfp" src="Default-pfp.png" alt="me">
+        <span id="nt-username" class="nt-user__name"></span>
+      </a>
+      <button class="nt-btn nt-btn--primary" type="button">Sign in</button>
+      <button class="nt-btn nt-btn--outline" type="button">Sign up</button>
+    </div>
+  </header>
+
+  <div class="nt-subheader">
+    <div class="nt-subheader__left">
+      <button id="nt-menu-btn" class="nt-menu-btn" type="button">Menu</button>
+    </div>
+    <div class="nt-subheader__center"></div>
+    <div class="nt-subheader__right">
+      <button id="nt-upload-btn" class="nt-action-btn" type="button" aria-label="Upload">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M5 20h14v-2H5v2zm7-16-5 5h3v4h4v-4h3l-5-5z"/>
+        </svg>
+        <span>Upload</span>
+      </button>
+      <button id="nt-settings-btn" class="nt-action-btn" type="button" aria-label="Settings">
+        <svg class="nt-action-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.2-0.36-0.28-0.57-0.22l-2.39,0.96c-0.5-0.38-1.04-0.69-1.64-0.92L14.4,2.5c-0.03-0.22-0.22-0.39-0.44-0.39h-3.92c-0.22,0-0.41,0.16-0.44,0.39L9.07,4.36c-0.6,0.23-1.15,0.54-1.64,0.92L5.04,4.32c-0.21-0.08-0.45,0.02-0.57,0.22L2.55,7.86C2.43,8.08,2.48,8.34,2.66,8.48l2.03,1.58C4.64,10.37,4.62,10.68,4.62,11s0.02,0.63,0.06,0.94L2.66,13.52c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.2,0.36,0.28,0.57,0.22l2.39-0.96c0.5,0.38,1.04,0.69,1.64,0.92l0.53,1.86c0.03,0.22,0.22,0.39,0.44,0.39h3.92c0.22,0,0.41-0.16,0.44-0.39l0.53-1.86c0.6-0.23,1.15-0.54,1.64-0.92l2.39,0.96c0.21,0.08,0.45-0.02,0.57-0.22l1.92-3.32c0.11-0.2,0.06-0.46-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5S10.07,8.5,12,8.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/>
+        </svg>
+        <span>Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <aside id="nt-sidebar" class="nt-sidebar nt-sidebar--open" aria-hidden="false">
+    <div class="nt-sidebar__inner">
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">PRINCIPAL</div>
+        <nav class="nt-sidebar__nav">
+          <button id="sb-home" class="nt-sidebtn is-active" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span class="nt-sidebtn__label">Home</span>
+          </button>
+          <button id="sb-channel" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <span class="nt-sidebtn__label">My Channel</span>
+          </button>
+          <button id="sb-subs" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7 17l5-5 5 5H7zm0-7h10l-5-5-5 5z"/></svg>
+            <span class="nt-sidebtn__label">My Subscriptions</span>
+          </button>
+          <button id="sb-history" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M13 3a9 9 0 1 0 8.95 10.05h-2.02A7 7 0 1 1 13 5v4l3.5 2.1.99-1.65L13 8V3z"/></svg>
+            <span class="nt-sidebtn__label">My History</span>
+          </button>
+          <button id="sb-liked" class="nt-sidebtn" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14 1 7.59 7.41C7.22 7.78 7 8.3 7 8.86V19c0 1.1.9 2 2 2h7c.82 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+            <span class="nt-sidebtn__label">My Liked</span>
+          </button>
+        </nav>
+      </div>
+      <div class="nt-sidebar__divider"></div>
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">TOP RATED</div>
+        <div class="nt-subs">
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=holasoygerman">
+            <img class="nt-sub__pfp" src="Channel1-pfp.png" alt="HolaSoyGerman">
+            <span class="nt-sub__name">HolaSoyGerman</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=cursor">
+            <img class="nt-sub__pfp" src="Channel2-pfp.png" alt="Cursor">
+            <span class="nt-sub__name">Cursor</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=carlossnakefist">
+            <img class="nt-sub__pfp" src="Channel3-pfp.png" alt="CarlosSnakeFist">
+            <span class="nt-sub__name">CarlosSnakeFist</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=jawed">
+            <img class="nt-sub__pfp" src="Channel4-pfp.png" alt="Jawed">
+            <span class="nt-sub__name">Jawed</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=bautista">
+            <img class="nt-sub__pfp" src="ninetube-logo.png" alt="Bautista">
+            <span class="nt-sub__name">Bautista</span>
+          </button>
+          <button class="nt-sub" type="button" data-profile="profile.html?channel=drossrotzank">
+            <img class="nt-sub__pfp" src="Channel6-pfp.png" alt="Dross Rotzank">
+            <span class="nt-sub__name">Dross Rotzank</span>
+          </button>
+        </div>
+      </div>
+      <div class="nt-sidebar__divider"></div>
+      <div class="nt-sidebar__section">
+        <div class="nt-sidebar__title">HELP</div>
+        <nav class="nt-sidebar__nav">
+          <button id="sb-settings" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.92-3.32c-0.11-0.2-0.36-0.28-0.57-0.22l-2.39,0.96c-0.5-0.38-1.04-0.69-1.64-0.92L14.4,2.5c-0.03-0.22-0.22-0.39-0.44-0.39h-3.92c-0.22,0-0.41,0.16-0.44,0.39L9.07,4.36c-0.6,0.23-1.15,0.54-1.64,0.92L5.04,4.32c-0.21-0.08-0.45,0.02-0.57,0.22L2.55,7.86C2.43,8.08,2.48,8.34,2.66,8.48l2.03,1.58C4.64,10.37,4.62,10.68,4.62,11s0.02,0.63,0.06,0.94L2.66,13.52c-0.18,0.14-0.23,0.41-0.12,0.62l1.92,3.32c0.11,0.2,0.36,0.28,0.57,0.22l2.39-0.96c0.5,0.38,1.04,0.69,1.64,0.92l0.53,1.86c0.03,0.22,0.22,0.39,0.44,0.39h3.92c0.22,0,0.41-0.16,0.44-0.39l0.53-1.86c0.6-0.23,1.15-0.54,1.64-0.92l2.39,0.96c0.21,0.08,0.45-0.02,0.57-0.22l1.92-3.32c0.11-0.2,0.06-0.46-0.12-0.62L19.14,12.94z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5S10.07,8.5,12,8.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"/></svg>
+            <span class="nt-sidebtn__label">Settings</span>
+          </button>
+          <button id="sb-report" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4h16v2H4v14H2V4c0-1.1.9-2 2-2zm4 5h10l-3 4 3 4H8v-8z"/></svg>
+            <span class="nt-sidebtn__label">Report</span>
+          </button>
+          <button id="sb-help" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 17c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm-1-6h2c0-2 3-2.25 3-4 0-1.66-1.34-3-3-3-1.31 0-2.42.84-2.83 2H8.15c.46-2.28 2.48-4 4.85-4 2.76 0 5 2.24 5 5 0 2.5-3 2.75-3 4v1h-2v-1z"/></svg>
+            <span class="nt-sidebtn__label">Help</span>
+          </button>
+          <button id="sb-about" class="nt-sidebtn nt-sidebtn--ghost" type="button">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            <span class="nt-sidebtn__label">About us</span>
+          </button>
+          <button id="sb-logout" class="nt-sidebtn nt-sidebtn--logout" type="button" style="display: none;">
+            <svg class="nt-sidebtn__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="#FF0000" d="M18 6L6 18M6 6l12 12"/></svg>
+            <span class="nt-sidebtn__label">Log out</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+  <main class="vt-main">
+    <div class="vt-content">
+      <div class="vt-player">
+        <video id="vt-video" class="vt-video" controls></video>
+        <div class="vt-video-controls">
+          <button id="vt-delete-btn" class="vt-delete-btn" type="button" style="display: none;">Delete Video</button>
+        </div>
+        <h1 id="vt-title" class="vt-title"></h1>
+        <div class="vt-actions">
+          <button id="vt-like" class="vt-action" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14 1 7.59 7.41C7.22 7.78 7 8.3 7 8.86V19c0 1.1.9 2 2 2h7c.82 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+            <span id="vt-like-count">0</span>
+          </button>
+          <button id="vt-dislike" class="vt-action" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1 3h4v12H1V3zm22 8c0 1.1-.9 2-2 2h-6.31l.95 4.57.03.32c0 .41-.17.79-.44 1.06L14 23 7.59 16.59C7.22 16.22 7 15.7 7 15.14V5c0-1.1.9-2 2-2h7c.82 0 1.54.5 1.84 1.22l3.02 7.05c.09.23.14.47.14.73v2z"/></svg>
+            <span id="vt-dislike-count">0</span>
+          </button>
+          <button id="vt-fav" class="vt-action" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.5 3.5 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5 18.5 5 20 6.5 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>+ Favorite</span>
+          </button>
+        </div>
+        <div id="vt-desc" class="vt-desc"></div>
+        <div class="vt-uploader-info">
+          <img id="vt-uploader-avatar" class="vt-uploader-info__avatar" src="" alt="Uploader">
+          <span id="vt-uploader-name" class="vt-uploader-info__name"></span>
+        </div>
+        <div id="vt-uploaded" class="vt-uploaded"></div>
+
+        <div class="vt-comments">
+          <textarea id="vt-comment" class="vt-comment" placeholder="Add a comment" disabled></textarea>
+          <div class="vt-comment-actions">
+            <button id="vt-send" class="vt-send" type="button" disabled>Send</button>
+          </div>
+          <div id="vt-thread" class="vt-thread"></div>
+        </div>
+      </div>
+
+      <aside class="vt-rightbar">
+        <div class="vt-suggested" id="vt-suggested"></div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="video-script.js"></script>
+</body>
+</html>
+
