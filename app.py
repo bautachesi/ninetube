@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, session
+from flask import Flask, request, jsonify, session, send_from_directory
 from flask_cors import CORS
 import json
 import hashlib
@@ -6,7 +7,7 @@ import os
 from datetime import datetime
 import uuid
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 app.secret_key = 'ninetube_secret_key_2024'
 CORS(app, supports_credentials=True)
 
@@ -323,6 +324,15 @@ def add_comment():
         
     except Exception as e:
         return jsonify({'success': False, 'message': 'Server error'}), 500
+
+# Static file routes
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:filename>')
+def static_files(filename):
+    return send_from_directory('.', filename)
 
 if __name__ == '__main__':
     init_databases()
