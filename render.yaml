@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ninetube
+    runtime: python3
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    plan: free
+    region: oregon
+    branch: main
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+    healthCheckPath: /

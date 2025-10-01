@@ -5,10 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
 });
 
+// Get API base URL (development vs production)
+function getApiBaseUrl() {
+    // In production (Render), both frontend and backend are served from the same domain
+    if (window.location.hostname.includes('onrender.com')) {
+        return window.location.origin;
+    }
+    // In development, backend runs on port 5000
+    return 'http://localhost:5000';
+}
+
 // Initialize settings functionality
 async function initializeSettings() {
     try {
-        const response = await fetch('http://localhost:5000/api/check-auth', {
+        const response = await fetch(`${getApiBaseUrl()}/api/check-auth`, {
             credentials: 'include'
         });
         const data = await response.json();
@@ -30,7 +40,7 @@ async function initializeSettings() {
 // Load user settings from backend
 async function loadUserSettings() {
     try {
-        const response = await fetch('http://localhost:5000/api/check-auth', {
+        const response = await fetch(`${getApiBaseUrl()}/api/check-auth`, {
             credentials: 'include'
         });
         const data = await response.json();
@@ -77,7 +87,7 @@ async function saveUserSettings() {
     const selectedLanguage = document.getElementById('languageSelector').textContent;
 
     try {
-        await fetch('http://localhost:5000/api/update-settings', {
+        await fetch(`${getApiBaseUrl()}/api/update-settings`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -158,7 +168,7 @@ function setupEventListeners() {
             e.preventDefault();
             
             try {
-                await fetch('http://localhost:5000/api/logout', {
+                await fetch(`${getApiBaseUrl()}/api/logout`, {
                     method: 'POST',
                     credentials: 'include'
                 });
