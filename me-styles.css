@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   background-color: #FFFFFF;
   color: #111111;
 }
@@ -389,7 +389,7 @@ html, body {
   border: 1px solid #707070;
   color: #707070;
   font-size: 14px;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   resize: vertical;
   outline: none;
 }
